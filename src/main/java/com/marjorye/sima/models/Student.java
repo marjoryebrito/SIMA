@@ -11,7 +11,7 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    long id;
 
     String name;
     int sex;
@@ -28,7 +28,7 @@ public class Student {
 
     public Student(){}
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
