@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>S.I.M.A.</title>
+</head>
+<body>
+<h1>Class List</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Shift</th>
+        <th>Year</th>
+
+    </tr>
+    <tr th:each="class_ : ${classes_}">
+        <td th:text="${class_.id}"></td>
+        <td th:text="${class_.name}"></td>
+        <td th:text="${class_.shift}"></td>
+        <td th:text="${class_.year}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
