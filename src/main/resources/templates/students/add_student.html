@@ -46,9 +46,16 @@ div {
         </div>
 
         <div>
+            <label>Add Class</label>
+            <select id="classId" name="class_" th:field="*{class_id}">
+                <option th:each="class_ : ${classes_list}" th:value="${class_.id}" th:text="${class_.name}" />
+            </select>
+        </div>
+
+        <div>
             <label>Sex</label>
             <select id="sexId" name="sex" th:field="*{sex}">
-                <option value="">Selecione</option>
+                <option value="0">Selecione</option>
                 <option value="1">Masculino</option>
                 <option value="2">Feminino</option>
             </select>

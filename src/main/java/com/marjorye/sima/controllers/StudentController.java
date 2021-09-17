@@ -1,18 +1,28 @@
 package com.marjorye.sima.controllers;
 
+import com.marjorye.sima.models.Class_;
 import com.marjorye.sima.models.Student;
+import com.marjorye.sima.repositories.Class_Repository;
 import com.marjorye.sima.repositories.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class StudentController {
 
     private final StudentRepository studentRepository;
 
-    public StudentController(StudentRepository studentRepository) {
+    @Autowired
+    private final Class_Repository class_repository;
+
+
+    public StudentController(StudentRepository studentRepository, Class_Repository class_repository) {
         this.studentRepository = studentRepository;
+        this.class_repository = class_repository;
     }
 
 
@@ -48,4 +58,14 @@ public class StudentController {
         return "/students/list";
     }
 
+    @ModelAttribute("classes_list")
+        public List<Class_> classes_list(){
+
+        return class_repository.findAll();
+
+    }
+
+
+
+    
 }

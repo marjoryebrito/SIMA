@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
-      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
 
 <head>
 
@@ -38,7 +38,7 @@ div {
 
 </head>
 
-<h3>Add Student</h3>
+<h3>Add Class</h3>
 
 <form th:action="@{/class_add}" th:object="${class_}" method="post">
     <div>
@@ -48,14 +48,14 @@ div {
 
 
     <div>
-        <label>Sex</label></br>
+        <label>Year</label></br>
         <select id="yearId" name="year" th:field="*{year}">
             <option th:each="n : ${#numbers.sequence(2021,1900)}" th:value="${n}" th:text="${n}"/>
         </select>
     </div>
 
     <div>
-        <label>Sex</label></br>
+        <label>Shift</label></br>
         <select id="shiftId" name="shift" th:field="*{shift}">
             <option value="0">Selecione</option>
             <option value="1">Matutino</option>

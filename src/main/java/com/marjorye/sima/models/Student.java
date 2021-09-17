@@ -1,9 +1,6 @@
 package com.marjorye.sima.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -25,6 +22,7 @@ public class Student {
     String resp_cpf;
     String resp_occupation;
     String nis;
+    long class_id;
 
     public Student(){}
 
@@ -130,6 +128,14 @@ public class Student {
 
     public void setNis(String nis) {
         this.nis = nis;
+    }
+
+    public long getClass_id() {
+        return class_id;
+    }
+
+    public void setClass_id(long class_id) {
+        this.class_id = class_id;
     }
 
     @Override
