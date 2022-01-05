@@ -41,19 +41,19 @@ div {
 
     <form th:action="@{/students-add}" th:object="${student}" method="post">
         <div>
-            <label>Name</label>
+            <label>Name</label></br>
             <input type="text"  id="studentName" th:field="*{name}" name="studentName">
         </div>
 
         <div>
-            <label>Add Class</label>
+            <label>Add Class</label></br>
             <select id="classId" name="class_" th:field="*{class_id}">
                 <option th:each="class_ : ${classes_list}" th:value="${class_.id}" th:text="${class_.name}" />
             </select>
         </div>
 
         <div>
-            <label>Sex</label>
+            <label>Sex</label></br>
             <select id="sexId" name="sex" th:field="*{sex}">
                 <option value="0">Selecione</option>
                 <option value="1">Masculino</option>
@@ -62,7 +62,7 @@ div {
         </div>
 
         <div>
-            <label>CPF</label>
+            <label>CPF</label></br>
             <input type="text" id="studentCPF" th:field="*{cpf}"  name="studentCPF">
         </div>
 

@@ -15,14 +15,12 @@ public class Grade {
     private long class_id;
 
     @Id
-    private long period_id;
-
-    @Id
     private long subject_id;
 
-    private float grade1;
-    private float grade2;
-    private float grade3;
+    private double period1;
+    private double period2;
+    private double period3;
+    private double recovery;
 
     public Grade() {
     }
@@ -43,14 +41,6 @@ public class Grade {
         this.class_id = class_id;
     }
 
-    public long getPeriod_id() {
-        return period_id;
-    }
-
-    public void setPeriod_id(long period_id) {
-        this.period_id = period_id;
-    }
-
     public long getSubject_id() {
         return subject_id;
     }
@@ -59,27 +49,36 @@ public class Grade {
         this.subject_id = subject_id;
     }
 
-    public float getGrade1() {
-        return grade1;
+    public double getPeriod1() {
+        return period1;
     }
 
-    public void setGrade1(float grade1) {
-        this.grade1 = grade1;
+    public void setPeriod1(double period1) {
+        this.period1 = period1;
     }
 
-    public float getGrade2() {
-        return grade2;
+    public double getPeriod2() {
+        return period2;
     }
 
-    public void setGrade2(float grade2) {
-        this.grade2 = grade2;
+    public void setPeriod2(double period2) {
+        this.period2 = period2;
     }
 
-    public float getGrade3() {
-        return grade3;
+    public double getPeriod3() {
+        return period3;
     }
 
-    public void setGrade3(float grade3) {
-        this.grade3 = grade3;
+    public void setPeriod3(double period3) {
+        this.period3 = period3;
+    }
+
+    public double getRecovery() {
+        return recovery;
+    }
+
+    public void setRecovery(double recovery) {
+        this.recovery = recovery;
     }
 }
+
