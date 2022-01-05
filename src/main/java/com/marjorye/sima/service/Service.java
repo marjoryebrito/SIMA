@@ -25,6 +25,27 @@ public class Service {
 
     ///////Grades
 
+    public void addGrades(Grade grades){
+        Grade g = new Grade();
+
+        System.out.println("New Grades!!!");
+        System.out.println("Subject: "+grades.getSubject_id());
+        System.out.println("1: "+grades.getPeriod1());
+        System.out.println("2: "+grades.getPeriod2());
+        System.out.println("3: "+grades.getPeriod3());
+
+
+        g.setStudent_id(grades.getStudent_id());
+        g.setClass_id(grades.getClass_id());
+        g.setSubject_id(grades.getSubject_id());
+        g.setPeriod1(grades.getPeriod1());
+        g.setPeriod2(grades.getPeriod2());
+        g.setPeriod3(grades.getPeriod3());
+        g.setRecovery(grades.getRecovery());
+
+        gradeRepository.save(g);
+    }
+
     public void initiateGrades(Student student){
         List<Subject_> list= subjectList();
         Grade g = new Grade();
@@ -43,7 +64,7 @@ public class Service {
 
     public List<Grade> findGradesByIdStudent(Student student){
 
-        List<Grade> list, list_aux = new ArrayList<>();
+        List<Grade> list = new ArrayList<>();
         list = gradeRepository.findGradesByStudentId(student.getId());
 
         for(int i = 0; i<list.size(); i++){
@@ -55,7 +76,7 @@ public class Service {
 
         }
 
-        return list_aux;
+        return list;
     }
 
     ///////Students

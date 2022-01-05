@@ -21,6 +21,7 @@ import java.util.Optional;
 @Controller
 public class GradeController {
 
+    @Autowired
     private final GradeRepository gradeRepository;
 
     @Autowired
@@ -52,23 +53,24 @@ public class GradeController {
     }
 
 
-
     @GetMapping("/grades")
     public String showAddGradesView(@ModelAttribute("student") Student student, Model model){
 
-
         final Optional<Student> dto = studentRepository.findById(student.getId());
-        model.addAttribute("student", dto.get().getName().toString());
-
         List<Grade> list = service.findGradesByIdStudent(dto.get());
+        Grade g = new Grade();
 
+        model.addAttribute("student", dto.get().getName().toString());
         model.addAttribute("grades_list", list);
+        model.addAttribute("new_grades", g);
 
         return "/grades/grade_view";
     }
 
-    @PostMapping("/grade-add")
-    public String addGrade(){
+    @PutMapping("/grade-add")
+    public String addGrade(@ModelAttribute("new_grades") Grade grades){
+
+        service.addGrades(grades);
 
         return "/index";
     }
@@ -82,8 +84,6 @@ public class GradeController {
 
     @ModelAttribute("subjects_list")
     public List<Subject_> subjects_list(){
-       // Subject_ subjects = new Subject_();
-
         return service.subjectList();
     }
 
