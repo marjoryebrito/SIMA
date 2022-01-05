@@ -6,6 +6,7 @@ public class GradeId implements Serializable {
 
     private long student_id;
     private long class_id;
+    private long period_id;
     private long subject_id;
 
     public GradeId() {
@@ -20,6 +21,7 @@ public class GradeId implements Serializable {
 
         if (student_id != gradeId.student_id) return false;
         if (class_id != gradeId.class_id) return false;
+        if (period_id != gradeId.period_id) return false;
         return subject_id == gradeId.subject_id;
     }
 
@@ -27,6 +29,7 @@ public class GradeId implements Serializable {
     public int hashCode() {
         int result = (int) (student_id ^ (student_id >>> 32));
         result = 31 * result + (int) (class_id ^ (class_id >>> 32));
+        result = 31 * result + (int) (period_id ^ (period_id >>> 32));
         result = 31 * result + (int) (subject_id ^ (subject_id >>> 32));
         return result;
     }

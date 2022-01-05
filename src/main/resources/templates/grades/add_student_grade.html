@@ -38,7 +38,7 @@
 }
 
 .button_td {
-  background-color: green;
+  background-color: #fff;
   border: none;
   color: black;
   padding: 15px 32px;
@@ -49,17 +49,6 @@
   margin: 4px 2px;
   cursor: pointer;
 }
-
-.radio_bt{
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-  color: black;
-  font-size: 22px;
-  border-radius: 50%;
-
-}
-
 </style>
     <meta charset="UTF-8"/>
     <title>S.I.M.A.</title>
@@ -74,12 +63,9 @@
     <div class="panel">
 
         <table>
-            <form th:action="@{/grades}" th:object="${student}" method="get">
-                    <tr th:each="student : ${students_list}" th:if="${student.class_id == class_.id} ">
-                       <td><input type="radio" class="radio_bt" th:text="${student.name}" th:field="${student.id}" th:value="${student.id}" name="radio"/></td>
-                    </tr>
-                <td><button class="button_td" th:text="Next"   th:type="submit"></button></td>
-            </form>
+            <tr th:each="student : ${students_list}" th:if="${student.class_id == class_.id} ">
+                <td><a href="/grades" class="button_td" th:text="${student.name}"></a></td>
+            </tr>
         </table>
 
     </div>

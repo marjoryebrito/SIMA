@@ -4,7 +4,6 @@ import com.marjorye.sima.models.Class_;
 import com.marjorye.sima.models.Student;
 import com.marjorye.sima.repositories.Class_Repository;
 import com.marjorye.sima.repositories.StudentRepository;
-import com.marjorye.sima.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,9 +18,6 @@ public class StudentController {
 
     @Autowired
     private final Class_Repository class_repository;
-
-    @Autowired
-    private Service service;
 
 
     public StudentController(StudentRepository studentRepository, Class_Repository class_repository) {
@@ -49,7 +45,7 @@ public class StudentController {
     @PostMapping("/students-add")
     public String addStudent(@ModelAttribute("student") Student student) {
 
-        service.addStudent(student);
+        studentRepository.save(student);
 
         return "/index";
     }

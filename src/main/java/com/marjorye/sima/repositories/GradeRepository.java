@@ -9,9 +9,7 @@ import java.util.List;
 
 public interface GradeRepository extends JpaRepository<Grade, Long> {
 
-
-    @Query(value = "SELECT * FROM Grade grade WHERE grade.student_id = ?1", nativeQuery = true)
-    List<Grade> findGradesByStudentId(long student_id);
-
+    @Query(value = "SELECT * FROM Students WHERE class_id = id_selected", nativeQuery = true)
+    List<Student> findAllStudentsByClass(long id_selected);
 
 }
