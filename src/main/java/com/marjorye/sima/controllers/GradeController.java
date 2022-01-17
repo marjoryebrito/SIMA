@@ -58,22 +58,40 @@ public class GradeController {
 
         final Optional<Student> dto = studentRepository.findById(student.getId());
         List<Grade> list = service.findGradesByIdStudent(dto.get());
-        Grade g = new Grade();
+        Grade grades = new Grade();
 
-        model.addAttribute("student", dto.get().getName().toString());
+
+        grades.setStudent_id(dto.get().getId());
+        grades.setClass_id(dto.get().getClass_id());
+
+
+        model.addAttribute("student", dto.get());
         model.addAttribute("grades_list", list);
-        model.addAttribute("new_grades", g);
+        model.addAttribute("new_grades", grades);
 
         return "/grades/grade_view";
     }
 
-    @PutMapping("/grade-add")
-    public String addGrade(@ModelAttribute("new_grades") Grade grades){
 
-        service.addGrades(grades);
+    @GetMapping("/grade-add")
+    public String addGrade(@ModelAttribute("new_grades") Grade grades, Model model){
+        Student st = new Student();
+        st.setId(grades.getStudent_id());
 
-        return "/index";
+        List<Grade> list = service.findGradesByIdStudent(st);
+
+        model.addAttribute("subject", grades.getSubject_id());
+        model.addAttribute("new_grades", grades);
+        model.addAttribute("grades_list", list);
+
+        //System.out.println(grades);
+
+        //service.updateGrades(grades.getStudent_id(), grades.getClass_id(), grades.getSubject_id(), grades);
+
+        return "/grades/grades_form_view";
     }
+
+
 
    @ModelAttribute("students_list")
     public List<Student> students_list(){

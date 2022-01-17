@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 
@@ -46,6 +47,25 @@ public class Service {
         gradeRepository.save(g);
     }
 
+    public void updateGrades(long StudentId, long classId, long subjectId, Grade newGrades){
+
+        Grade gradeEntity = gradeRepository.findGradesByIds(StudentId, classId, subjectId);
+        Grade grade =  new Grade();
+
+
+        if(gradeEntity != null){
+            grade = gradeEntity;
+        }
+
+        grade.setPeriod1(newGrades.getPeriod1());
+        grade.setPeriod2(newGrades.getPeriod2());
+        grade.setPeriod3(newGrades.getPeriod3());
+        grade.setRecovery(newGrades.getRecovery());
+
+         gradeRepository.save(grade);
+
+    }
+
     public void initiateGrades(Student student){
         List<Subject_> list= subjectList();
         Grade g = new Grade();
@@ -67,14 +87,14 @@ public class Service {
         List<Grade> list = new ArrayList<>();
         list = gradeRepository.findGradesByStudentId(student.getId());
 
-        for(int i = 0; i<list.size(); i++){
+       /* for(int i = 0; i<list.size(); i++){
             System.out.println("Subject: " + list.get(i).getSubject_id());
             System.out.println("G1: " + list.get(i).getPeriod1());
             System.out.println("G2: " + list.get(i).getPeriod2());
             System.out.println("G3: " + list.get(i).getPeriod3());
             System.out.println("G4: " + list.get(i).getRecovery());
 
-        }
+        }*/
 
         return list;
     }

@@ -1,0 +1,43 @@
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+
+
+
+<h1><span th:text="'Subject:' + ${subject}"></span></h1>
+
+
+<form th:action="@{/grade-add}" th:object="${new_grades}" method="get">
+    <!-- <input type="hidden" name="_method" value="put" />-->
+
+    <div>
+        <label>Period I</label></br>
+        <input type="number" style="width: 5em"  th:field="${new_grades.period1}"/>
+    </div>
+
+    <div>
+        <label>Period II</label></br>
+            <input type="number" style="width: 5em"  th:field="${new_grades.period2}"/>
+    </div>
+
+
+    <div>
+        <label>Period III</label></br>
+        <input type="number" style="width: 5em"  th:field="${new_grades.period3}"/>
+    </div>
+
+    <div>
+        <label>Average</label></br>
+        <input type="text"   style="width: 5em" readonly />
+    </div>
+
+    <div>
+        <label>Recovery</label></br>
+        <input type="number" style="width: 5em"  th:field="${new_grades.recovery}"/>
+    </div>
+
+
+    <button class="button_td" th:text="Save"  th:type="submit"></button>
+
+</form>
+
+
+</html>

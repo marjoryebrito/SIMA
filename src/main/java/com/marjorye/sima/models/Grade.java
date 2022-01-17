@@ -80,5 +80,18 @@ public class Grade {
     public void setRecovery(double recovery) {
         this.recovery = recovery;
     }
+
+    @Override
+    public String toString() {
+        return "Grade{" +
+                "student_id=" + student_id +
+                ", class_id=" + class_id +
+                ", subject_id=" + subject_id +
+                ", period1=" + period1 +
+                ", period2=" + period2 +
+                ", period3=" + period3 +
+                ", recovery=" + recovery +
+                '}';
+    }
 }
 

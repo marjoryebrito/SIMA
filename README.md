@@ -1,21 +1,9 @@
-# Getting Started
+# Student Information Management Application
 
-### Reference Documentation
-For further reference, please consider the following sections:
+<h2>Technologies used so far</h2>
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.5.4/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.5.4/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.5.4/reference/htmlsingle/#boot-features-developing-web-applications)
-* [Thymeleaf](https://docs.spring.io/spring-boot/docs/2.5.4/reference/htmlsingle/#boot-features-spring-mvc-template-engines)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.5.4/reference/htmlsingle/#boot-features-jpa-and-spring-data)
+<li>Spring Boot</li>
+<li>Thymeleaf</li>
 
-### Guides
-The following guides illustrate how to use some features concretely:
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
-* [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/)
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-
+<h2>Status:</h2> <h3>In progress...</h3>

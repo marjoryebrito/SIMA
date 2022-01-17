@@ -40,40 +40,42 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+
+.head{
+display: none;
+}
+
     </style>
 </head>
 <body>
-<h1><span th:text="'Name:' + ${student}"></span></h1>
+<h1><span th:text="'Name:' + ${student.name}"></span></h1>
 
 
 <div th:each="subject : ${subjects_list}">
 
-    <button class="accordion" th:text="${subject.subject_name}"></button>
+    <button class="accordion"  th:text="${subject.subject_name}"></button>
+
     <div class="panel">
 
-        <form th:action="@{/grade-add}" th:object="${new_grades}" method="post">
-            <input type="hidden" name="_method" value="put" />
-       <table>
-                <tr>
-                    <th>Period I</th>
-                    <th>Period II</th>
-                    <th>Period III</th>
-                    <th>Average</th>
-                    <th>Recovery</th>
-                </tr>
-                <tr th:each="grade : ${grades_list}" th:if="${grade.subject_id == subject.id}">
-                    <input type="hidden" name="student_id" th:value="${grade.student_id}" th:field="${new_grades.student_id}"/>
-                    <input type="hidden" name="class_id"   th:value="${grade.class_id}" th:field="${new_grades.class_id}"/>
-                    <input type="hidden" name="subject_id" th:value="${grade.subject_id}" th:field="${new_grades.subject_id}"/>
 
-                    <td><input type="number"   style="width: 5em" th:value="${grade.period1}" th:field="${new_grades.period1}"/></td>
-                    <td><input type="number" style="width: 5em" th:value="${grade.period2}" th:field="${new_grades.period2}"/></td>
-                    <td><input type="number" style="width: 5em" th:value="${grade.period3}" th:field="${new_grades.period3}"/></td>
-                    <td><input type="text"   style="width: 5em" readonly /></td>
-                    <td><input type="number" style="width: 5em" th:value="${grade.recovery}" th:field="${new_grades.recovery}"/></td>
-                    <td><button class="button_td" th:text="Save"  th:type="submit"></button></td>
-                </tr>
-        </table>
+        <form th:action="@{/grade-add}" th:object="${new_grades}" method="get">
+            <!-- <input type="hidden" name="_method" value="put" />-->
+
+            <div th:each="grade : ${grades_list}" th:if="${grade.subject_id == subject.id}">
+                <input type="checkbox" id="sbj" name="sbj" th:value="${subject.id}" th:field="${new_grades.subject_id}" checked /></br>
+                <span th:text="'Period I: '   + ${grade.period1}"></span></br>
+                <span th:text="'Period II: '  + ${grade.period2}"></span></br>
+                <span th:text="'Period III: ' + ${grade.period3}"></span></br>
+                <span th:text="'Average: ' "></span></br>
+
+
+                <input type="hidden" name="id" th:value="${student.id}" th:field="${new_grades.student_id}" />
+                <input type="hidden" name="class_id" th:value="${student.class_id}" th:field="${new_grades.class_id}" />
+
+                <td><button class="button_td" th:text="Next"  th:type="submit"></button></td>
+
+            </div>
+
         </form>
 
     </div>
@@ -83,7 +85,15 @@
 
 <script>
 var acc = document.getElementsByClassName("accordion");
+var checkbox = document.getElementsByName("subject_id");
+
 var i;
+
+function atvCheckbox() {
+    checkbox.checked = true;
+}
+
+
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
@@ -96,6 +106,12 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+
+
+
+
+
 </script>
 </body>
 </html>
