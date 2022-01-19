@@ -1,7 +1,12 @@
 package com.marjorye.sima.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Subject_ {
+
+    @Id
     long id;
     String subject_name;
 

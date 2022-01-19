@@ -2,7 +2,7 @@
 
 
 
-<h1><span th:text="'Subject:' + ${subject}"></span></h1>
+<h1><span th:text="'Subject: ' + ${subject.subject_name}"></span></h1>
 
 
 <form th:action="@{/grade-add}" th:object="${new_grades}" method="get">

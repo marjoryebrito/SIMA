@@ -84,9 +84,6 @@ public class GradeController {
         model.addAttribute("new_grades", grades);
         model.addAttribute("grades_list", list);
 
-        //System.out.println(grades);
-
-        //service.updateGrades(grades.getStudent_id(), grades.getClass_id(), grades.getSubject_id(), grades);
 
         return "/grades/grades_form_view";
     }
